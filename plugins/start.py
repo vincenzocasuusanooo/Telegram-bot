@@ -13,7 +13,6 @@ from script import Script
 
 @trojanz.on_message(filters.command(["start"]) & filters.private)
 async def start(client, message):
-    media = message.reply_to_message
     await message.reply_text(
         text=Script.START_MSG.format(message.from_user.mention),
         disable_web_page_preview=True,
@@ -28,14 +27,12 @@ async def start(client, message):
                         "⭕️ JOIN OUR CHANNEL ⭕️", url="https://t.me/TroJanzHEX")
                 ]
             ]
-        ),
-        reply_to_message_id=media.message_id
+        )
     )
 
 
 @trojanz.on_message(filters.command(["help"]) & filters.private)
 async def help(client, message):
-    media = message.reply_to_message
     await message.reply_text(
         text=Script.HELP_MSG,
         disable_web_page_preview=True,
@@ -50,14 +47,12 @@ async def help(client, message):
                         "⭕️ SUPPORT ⭕️", url="https://t.me/TroJanzSupport")
                 ]
             ]
-        ),
-        reply_to_message_id=media.message_id
+        )
     )
 
 
 @trojanz.on_message(filters.command(["about"]) & filters.private)
 async def about(client, message):
-    media = message.reply_to_message
     await message.reply_text(
         text=Script.ABOUT_MSG,
         disable_web_page_preview=True,
@@ -72,6 +67,5 @@ async def about(client, message):
                         "SOURCE CODE", url="https://github.com/TroJanzHEX/Streams-Extractor")
                 ]
             ]
-        ),
-        reply_to_message_id=media.message_id
+        )
     )
