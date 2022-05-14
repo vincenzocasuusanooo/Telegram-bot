@@ -13,6 +13,7 @@ from script import Script
 
 @trojanz.on_message(filters.command(["start"]) & filters.private)
 async def start(client, message):
+    media = message.reply_to_message
     await message.reply_text(
         text=Script.START_MSG.format(message.from_user.mention),
         disable_web_page_preview=True,
@@ -28,12 +29,13 @@ async def start(client, message):
                 ]
             ]
         ),
-        reply_to_message_id=message.id
+        reply_to_message_id=media.message_id
     )
 
 
 @trojanz.on_message(filters.command(["help"]) & filters.private)
 async def help(client, message):
+    media = message.reply_to_message
     await message.reply_text(
         text=Script.HELP_MSG,
         disable_web_page_preview=True,
@@ -49,12 +51,13 @@ async def help(client, message):
                 ]
             ]
         ),
-        reply_to_message_id=message.id
+        reply_to_message_id=media.message_id
     )
 
 
 @trojanz.on_message(filters.command(["about"]) & filters.private)
 async def about(client, message):
+    media = message.reply_to_message
     await message.reply_text(
         text=Script.ABOUT_MSG,
         disable_web_page_preview=True,
@@ -70,5 +73,5 @@ async def about(client, message):
                 ]
             ]
         ),
-        reply_to_message_id=message.id
+        reply_to_message_id=media.message_id
     )
